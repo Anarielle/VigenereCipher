@@ -52,7 +52,7 @@
     <Compile Include="EncryptTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DecryptTest.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="CryptTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

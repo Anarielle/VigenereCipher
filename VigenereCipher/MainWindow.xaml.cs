@@ -30,55 +30,17 @@ namespace VigenereCipher
 
         private void bCrypt_Click(object sender, RoutedEventArgs e)
         {
-            Cipher cipher = new Cipher();
-            if (tbText.Text == "Введите свой текст" || tbKey.Text == "Ключ")
-            {
-                MessageBox.Show("пусто");
-            }
-
-            else
-            {
-                if (rbEncrypt.IsChecked == true)
-                {
-                    tbResult.Text = cipher.Encrypt(tbText.Text, tbKey.Text);
-                }
-                if (rbDecrypt.IsChecked == true)
-                {
-                    tbResult.Text = cipher.Decrypt(tbText.Text, tbKey.Text);
-                }
-            }
+            tbResult.Text = Interactions.Crypt(tbText.Text, tbKey.Text, (bool)rbEncrypt.IsChecked);
         }
 
         private void mOpen_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "txt files (*.txt)|*.txt";
-            openFileDialog.ShowDialog();
-            string path = openFileDialog.FileName;
-
-            Encoding currentEncoding;
-            using (StreamReader sr = new StreamReader(path))
-            {
-                currentEncoding = sr.CurrentEncoding;
-            }
-            tbText.Text = File.ReadAllText(path, Encoding.Default);
+            tbText.Text = Interactions.Open();
         }
 
         private void mSave_Click(object sender, RoutedEventArgs e)
         {
-            if (tbResult.Text == "")
-            {
-                MessageBox.Show("Выпроните шифрацию или дешифрацию текста, чтобы сохранить его");
-            }
-            else
-            {
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = "txt files (*.txt)|*.txt";
-                if (saveFileDialog.ShowDialog() == true)
-                {
-                    File.WriteAllText(saveFileDialog.FileName, tbResult.Text);
-                }
-            }
+            Interactions.Save(tbResult.Text);
         }
 
         private void tbText_IsKeyboardFocusedChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -104,7 +66,6 @@ namespace VigenereCipher
 
         private void tbKey_IsKeyboardFocusedChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-
             if (tbKey.IsKeyboardFocused)
             {
                 if (tbKey.Text == "Ключ")
@@ -122,7 +83,6 @@ namespace VigenereCipher
                 }
             }
         }
-
         private void tbText_TextChanged(object sender, TextChangedEventArgs e)
         {
             tbText.Foreground = Brushes.Black;
