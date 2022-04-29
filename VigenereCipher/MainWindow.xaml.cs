@@ -30,6 +30,7 @@ namespace VigenereCipher
 
         private void bCrypt_Click(object sender, RoutedEventArgs e)
         {
+            Error();
             tbResult.Text = Interactions.Crypt(tbText.Text, tbKey.Text, (bool)rbEncrypt.IsChecked);
         }
 
@@ -40,11 +41,14 @@ namespace VigenereCipher
 
         private void mSave_Click(object sender, RoutedEventArgs e)
         {
+            Error();
             Interactions.Save(tbResult.Text);
         }
 
         private void tbText_IsKeyboardFocusedChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
+            tbText.BorderBrush = new SolidColorBrush(Color.FromRgb(154, 196, 236));
+            tbText.Background = Brushes.White;
             if (tbText.IsKeyboardFocused)
             {
                 if (tbText.Text == "Введите свой текст")
@@ -66,6 +70,8 @@ namespace VigenereCipher
 
         private void tbKey_IsKeyboardFocusedChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
+            tbKey.BorderBrush = Brushes.Gray;
+            tbKey.Background = Brushes.White;
             if (tbKey.IsKeyboardFocused)
             {
                 if (tbKey.Text == "Ключ")
@@ -86,6 +92,32 @@ namespace VigenereCipher
         private void tbText_TextChanged(object sender, TextChangedEventArgs e)
         {
             tbText.Foreground = Brushes.Black;
+            tbText.BorderBrush = new SolidColorBrush(Color.FromRgb(154, 196, 236));
+            tbText.Background = Brushes.White;
+        }
+
+        public void Error()
+        {
+            SolidColorBrush lightRed = new SolidColorBrush(Color.FromRgb(224, 102, 102));
+            SolidColorBrush pink = new SolidColorBrush(Color.FromRgb(224, 204, 204));
+            if (tbText.Text == "Введите свой текст" && tbKey.Text == "Ключ")
+            {
+                tbText.BorderBrush = lightRed;
+                tbText.Background = pink;
+                tbKey.BorderBrush = lightRed;
+                tbKey.Background = pink;
+            }
+            else if (tbText.Text == "Введите свой текст")
+            {
+                tbText.BorderBrush = lightRed;
+                tbText.Background = pink;
+
+            }
+            else if (tbKey.Text == "Ключ")
+            {
+                tbKey.BorderBrush = lightRed;
+                tbKey.Background = pink;
+            }
         }
     }
 }

@@ -20,21 +20,14 @@ namespace VigenereCipher
 
             if (openFileDialog.ShowDialog() == true)
             {
-                string path = openFileDialog.FileName;
-                using (StreamReader sr = new StreamReader(path))
-                {
-                    text = File.ReadAllText(path, Encoding.Default);
-                }
+                string path = openFileDialog.FileName;                
+                text = File.ReadAllText(path, Encoding.Default);
             }
             return text;
         }
         public static void Save(string result)
         {
-            if (string.IsNullOrEmpty(result))
-            {
-                MessageBox.Show("Выполните шифрацию или дешифрацию текста, чтобы сохранить его");
-            }
-            else
+            if (!string.IsNullOrEmpty(result))
             {
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "txt files (*.txt)|*.txt";
@@ -49,7 +42,6 @@ namespace VigenereCipher
             Cipher cipher = new Cipher();
             if (text == "Введите свой текст" || key == "Ключ")
             {
-                MessageBox.Show("Не указан текст или ключ!");
                 return "";
             }
             else
