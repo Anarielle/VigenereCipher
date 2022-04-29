@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "7e7fb5d2-aa96-4624-9a92-8550f9e69e8b": {
+      "ProjectGuid": "7e7fb5d2-aa96-4624-9a92-8550f9e69e8b",
+      "DisplayName": "VigenereCipher",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
