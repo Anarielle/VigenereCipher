@@ -44,13 +44,13 @@ namespace VigenereCipher
                 }
             }
         }
-
         public static string Crypt(string text, string key, bool encrypt)
         {
             Cipher cipher = new Cipher();
             if (text == "Введите свой текст" || key == "Ключ")
             {
-               return "";
+                MessageBox.Show("Не указан текст или ключ!");
+                return "";
             }
             else
             {
