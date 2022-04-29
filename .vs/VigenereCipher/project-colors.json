@@ -5,7 +5,22 @@
       "ProjectGuid": "7e7fb5d2-aa96-4624-9a92-8550f9e69e8b",
       "DisplayName": "VigenereCipher",
       "ColorIndex": 0
+    },
+    "5cc4dff3-52f0-4571-a626-c39ec29d108a": {
+      "ProjectGuid": "5cc4dff3-52f0-4571-a626-c39ec29d108a",
+      "DisplayName": "VegenereCipherTests",
+      "ColorIndex": 1
+    },
+    "e1ca475b-6009-408d-9f09-acf21434e9e8": {
+      "ProjectGuid": "e1ca475b-6009-408d-9f09-acf21434e9e8",
+      "DisplayName": "VigenereCipherTests",
+      "ColorIndex": 2
+    },
+    "a82cead4-f1fc-434d-809e-469fc4c6e916": {
+      "ProjectGuid": "a82cead4-f1fc-434d-809e-469fc4c6e916",
+      "DisplayName": "TestProject1",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 4
 }
